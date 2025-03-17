@@ -91,7 +91,7 @@ class _OnbordingScreenState extends State<OnbordingScreen> {
                             ),
                           )
                           : GestureDetector(
-                             onTap: () {
+                            onTap: () {
                               _controller.animateToPage(
                                 _controller.page!.toInt() + 1,
                                 duration: Duration(milliseconds: 500),
