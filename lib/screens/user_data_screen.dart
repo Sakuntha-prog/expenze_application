@@ -1,5 +1,7 @@
 import 'package:expenze_application/constents/colors.dart';
+import 'package:expenze_application/screens/main_screen.dart';
 import 'package:expenze_application/screens/onbording_screen.dart';
+import 'package:expenze_application/services/user_services.dart';
 import 'package:expenze_application/widgects/custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -177,8 +179,33 @@ class _UserDataScreenState extends State<UserDataScreen> {
                       ),
                       SizedBox(height: 30),
                       GestureDetector(
-                        onTap: () {
-                          if (_formKey.currentState!.validate()) {}
+                        onTap: () async {
+                          if (_formKey.currentState!.validate()) {
+                            String userNameVar = _nameTextControllor.text;
+                            String userEmailnVar = _emailTextControllor.text;
+                            String userPasswordVar =
+                                _passowrdTextControllor.text;
+                            String userConfirmPasswordVar =
+                                _confirmPasswordTextControllor.text;
+
+                            await UserServices.storeUserDetails(
+                              userName: userNameVar,
+                              userEmail: userEmailnVar,
+                              userPassword: userPasswordVar,
+                              userconfirmPassword: userConfirmPasswordVar,
+                              context: context,
+                            );
+
+                            //navigate to the main screen
+                            if (context.mounted) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MainScreen(),
+                                ),
+                              );
+                            }
+                          }
                         },
                         child: CustomButton(
                           btnName: "Next",
