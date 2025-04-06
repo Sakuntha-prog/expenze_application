@@ -13,7 +13,7 @@ class UserDataScreen extends StatefulWidget {
 }
 
 class _UserDataScreenState extends State<UserDataScreen> {
-  //foe the checkbox
+  //for the checkbox
   bool _rememberMe = false;
 
   //form key foer the  form validations
@@ -163,7 +163,7 @@ class _UserDataScreenState extends State<UserDataScreen> {
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
-                              color: kGrey,
+                              color: const Color.fromARGB(255, 11, 11, 11),
                             ),
                           ),
                           Checkbox(
@@ -194,8 +194,7 @@ class _UserDataScreenState extends State<UserDataScreen> {
                               userPassword: userPasswordVar,
                               userconfirmPassword: userConfirmPasswordVar,
                               context: context,
-                            );
-
+                            );                          
                             //navigate to the main screen
                             if (context.mounted) {
                               Navigator.push(
