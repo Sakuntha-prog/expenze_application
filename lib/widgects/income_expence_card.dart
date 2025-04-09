@@ -52,7 +52,7 @@ class _IncomeExpenceCardState extends State<IncomeExpenceCard> {
                   ),
                 ),
                 Text(
-                  widget.amount,
+                  "\$${widget.amount}",
                   style: TextStyle(
                     color: kWhite,
                     fontSize: 18,
